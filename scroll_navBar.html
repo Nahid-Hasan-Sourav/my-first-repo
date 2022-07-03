@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing:border-box;
+    }
+    .container{
+        height: 100vh;
+    }
+    .cover{
+        height: 300px;
+    }
+    #immg{
+        height: 100%;
+        width: 100%;
+    }
+    header{
+        
+    width: 100%;
+    height: 80px;
+       
+    }
+
+    .navbar{
+        position: fixed;
+        height: 80px;
+        width: 100%;
+        padding: 20px;
+        background-color: rgb(223, 35, 35);
+    }
+
+    nav{
+        height: 100%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+    .nav-item{
+        display: flex;
+        
+    }
+    ul{
+        display: flex;
+    }
+    ul li{
+        list-style: none;
+        margin-right: 30px;
+    }
+    ul li a{
+        text-decoration: none;
+    }
+    .cover{
+        margin-bottom: 120px;
+    }
+    .after-scroll-navbar{
+        background-color: blue;
+        color: white;
+    }
+   .project{
+       display: flex;
+   }
+   .project>div{
+       flex-basis: 33.33%;
+       border: 1px solid red;
+       margin: 20px;
+       height: 300px;
+       text-align: center;
+   }
+</style>
+<body>
+    <div class="container">
+        <header>
+            <div class="navbar">
+                <nav>
+                    <div class="logo">
+                        <h4>LoGo</h4>
+                    </div>
+                    <div class="nav-item">
+                        <ul>
+                            <li><a href="">Home</a></li>
+                            <li><a href="">About</a></li>
+                            <li><a href="">Skills</a></li>
+                            <li><a href="">Experience</a></li>
+                            <li><a href="">Login</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </header>
+        <main>
+            <div class="cover">
+                <img id="immg" src="/Image/coverphoto1.jpg">
+            </div>
+            <div class="content" style="margin-top: 30px;">
+                <h3>Text Here</h3>
+                <p> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugiat doloremque quo nesciunt exercitationem atque, fugit corporis voluptate ipsam inventore illo? Error architecto veritatis animi asperiores ea incidunt iure non ratione quidem. Culpa maxime dicta nostrum quo consectetur cumque atque vitae, commodi facere, a odio quas mollitia! Cumque praesentium laborum nemo?</p>
+            </div>
+            <div class="content" style="margin-top: 40px;">
+                <h3>Text Here</h3>
+                <p> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugiat doloremque quo nesciunt exercitationem atque, fugit corporis voluptate ipsam inventore illo? Error architecto veritatis animi asperiores ea incidunt iure non ratione quidem. Culpa maxime dicta nostrum quo consectetur cumque atque vitae, commodi facere, a odio quas mollitia! Cumque praesentium laborum nemo?</p>
+            </div>
+            <div class="content" style="margin-top: 30px;">
+                <h3>Text Here</h3>
+                <p> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugiat doloremque quo nesciunt exercitationem atque, fugit corporis voluptate ipsam inventore illo? Error architecto veritatis animi asperiores ea incidunt iure non ratione quidem. Culpa maxime dicta nostrum quo consectetur cumque atque vitae, commodi facere, a odio quas mollitia! Cumque praesentium laborum nemo?</p>
+            </div>
+
+            <div class="project">
+                <div class="pro1">
+                    <h2>Project</h2>
+                    <h3 id="pro1">100</h3>
+                </div>
+                <div class="pro2">
+                    <h2>Project</h2>
+                    <h3>100</h3>
+                </div>
+                <div class="pro3">
+                    <h2>Project</h2>
+                    <h3>100</h3>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        var bgNav=document.querySelector(".navbar");
+
+        window.onscroll=function(){
+            var scroll_nav=window.scrollY;
+
+            if(scroll_nav>=100){
+                bgNav.classList.add("after-scroll-navbar");
+                console.log(scroll_nav);
+            }
+            else{
+                bgNav.classList.remove("after-scroll-navbar");
+            }
+        }
+
+        window.onload = () =>{
+            main1();
+        }
+
+        function main1(){
+            var count=0;
+            var anim=setInterval(project,1000);
+
+            function project(){
+                count++;
+                document.querySelector("#pro1").innerHTML=count;
+
+                if(count==100){
+                    clearInterval(anim);
+                }
+            }
+        }
+    </script>
+</body>
+</html>
